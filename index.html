@@ -33,8 +33,10 @@ img{display:block}
 @keyframes u-down{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:none}}
 @keyframes u-up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes u-reveal{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
-.u-track{animation:u-slide 70s linear infinite}
-.u-track:hover{animation-play-state:paused}
+.u-gallery{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;cursor:grab}
+.u-gallery::-webkit-scrollbar{display:none}
+.u-top{transition:opacity .25s ease, visibility .25s}
+.u-top.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
 .u-track img{transition:transform .5s ease, filter .5s ease}
 .u-track img:hover{transform:scale(1.04);filter:brightness(1.1)}
 .u-kb{animation:u-kb 16s cubic-bezier(.2,.6,.2,1) both}
@@ -89,7 +91,7 @@ img{display:block}
 <div class="u-root lang-he" id="u-root" dir="rtl" lang="he" style="background: #140c08; color: #f1e6d2; font-family: 'Heebo', 'Rubik', system-ui, sans-serif; font-size: 18px; line-height: 1.7">
 
   <!-- TOP CONTROLS: language (top left) · hamburger (top right) -->
-  <div dir="ltr" style="position: sticky; top: 0; z-index: 60; height: 0">
+  <div dir="ltr" class="u-top" id="u-top" style="position: sticky; top: 0; z-index: 60; height: 0">
     <div style="position: absolute; top: 14px; left: 14px">
       <button type="button" class="u-plain u-chip" data-act="toggleLang" aria-expanded="false" aria-label="Language / שפה / Язык" style="display: flex; align-items: center; gap: 6px; height: 48px; padding: 0 12px; border-radius: 12px; background: rgba(20,12,8,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212,168,90,0.35); color: #f1e6d2; font-weight: 700; font-size: 15px">
         <span id="u-langlabel">עב</span>
@@ -142,7 +144,7 @@ img{display:block}
       </div>
     </div>
     <div style="flex: 1; overflow: auto; -webkit-overflow-scrolling: touch">
-      <div class="u-sheet" style="padding: 16px; display: flex; flex-direction: column; gap: 16px; align-items: safe center; width: max-content; min-width: 100%; box-sizing: border-box">
+      <div class="u-sheet" style="padding: 16px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; width: max-content; min-width: 100%; box-sizing: border-box">
         <p style="margin: 0; color: #a8946f; font-size: 14px"><span data-l="he">אפשר להגדיל עם שתי אצבעות ולגלול לצדדים</span><span data-l="en">Pinch to zoom and scroll sideways</span><span data-l="ru">Увеличьте двумя пальцами и листайте в стороны</span></p>
         <img src="menu-he.jpg" alt="תפריט אורנוס בעברית" style="width: max(100%, 1100px); max-width: 1600px; height: auto; border-radius: 6px">
         <p style="margin: 16px 0 0; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 24px; line-height: 1">English menu</p>
@@ -182,7 +184,8 @@ img{display:block}
   </section>
 
   <!-- AUTO-SLIDING GALLERY -->
-  <section aria-label="Gallery" dir="ltr" style="overflow: hidden; padding: 24px 0 88px">
+  <section aria-label="Gallery" dir="ltr" style="padding: 24px 0 88px">
+    <div class="u-gallery" tabindex="0" aria-label="Photo gallery — swipe sideways" style="padding: 0 14px">
     <div class="u-track" style="display: flex; gap: 14px; width: max-content">
       <img src="crowd-neon.jpg" alt="Friends around a table under the neon sign" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
       <img src="burger.jpg" alt="Burger with egg and fries" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
@@ -204,6 +207,7 @@ img{display:block}
       <img src="waffle.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
       <img src="regulars.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
       <img src="shelf.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+    </div>
     </div>
   </section>
 
@@ -298,6 +302,7 @@ img{display:block}
     $('u-burger').setAttribute('aria-expanded',st.nav);
     $('nav').classList.toggle('is-open',st.nav); $('nav').setAttribute('aria-hidden',!st.nav);
     $('menu-view').classList.toggle('is-open',st.menu); $('menu-view').setAttribute('aria-hidden',!st.menu);
+    $('u-top').classList.toggle('is-hidden',st.menu);
     document.body.style.overflow=(st.nav||st.menu)?'hidden':'';
   }
   var acts={
@@ -327,6 +332,24 @@ img{display:block}
   });
   try{var l=localStorage.getItem('uranus-lang');if(l&&labels[l])st.lang=l;}catch(_){}
   render();
+  // gallery: slow drift, pauses while swiping/dragging, then resumes
+  (function(){
+    var g=document.querySelector('.u-gallery');
+    if(!g||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+    var pos=g.scrollLeft,until=0,down=false,sx=0,sl=0;
+    function pause(){until=Date.now()+2500}
+    ['touchstart','touchmove','wheel','pointerdown','mouseenter','focusin'].forEach(function(ev){g.addEventListener(ev,pause,{passive:true})});
+    g.addEventListener('mousedown',function(e){down=true;sx=e.pageX;sl=g.scrollLeft;pause()});
+    window.addEventListener('mouseup',function(){down=false});
+    g.addEventListener('mousemove',function(e){if(down){g.scrollLeft=sl-(e.pageX-sx);pause()}});
+    function step(){
+      var half=g.scrollWidth/2;
+      if(Date.now()>until&&!down){pos+=0.5;if(pos>=half)pos-=half;g.scrollLeft=Math.round(pos)}
+      else{pos=g.scrollLeft;if(pos>=half){pos-=half;g.scrollLeft=pos}}
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  })();
 })();
 
 </script>
