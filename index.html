@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uranus Pub — פאב אורנוס, נתניה, מאז 1980</title>
+<meta name="description" content="פאב אורנוס — הבר האנגלי האמיתי של נתניה מאז 1980. במה פתוחה, האפי האוור כל יום <bdi dir="ltr">18:00–20:00</bdi>. כיכר העצמאות 13, נתניה.">
+<meta property="og:title" content="Uranus Pub — פאב אורנוס, נתניה">
+<meta property="og:description" content="הבר האנגלי של נתניה מאז 1980">
+<meta property="og:image" content="hero.jpg">
+<meta name="theme-color" content="#140c08">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&amp;family=Heebo:wght@400;500;700&amp;family=Oswald:wght@500;600&amp;family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#140c08}
+a{color:#e6c27a;transition:color .25s}a:hover{color:#f6e2b0}
+img{display:block}
+/* languages */
+.u-root [data-l]{display:none}
+.lang-he [data-l="he"],.lang-en [data-l="en"],.lang-ru [data-l="ru"]{display:inline}
+.lang-ru{font-family:'Rubik',system-ui,sans-serif !important}
+.u-disp [data-l="ru"]{font-family:'Oswald',sans-serif;font-weight:600;font-size:.6em;line-height:1.15;letter-spacing:.3px}
+.u-plain{border:0;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.u-lang{display:flex;gap:2px;padding:3px;border:1px solid rgba(212,168,90,.35);border-radius:11px}
+.u-lang button{cursor:pointer;border:0;font:inherit;color:#f1e6d2;background:transparent;font-size:14px;font-weight:700;padding:8px 10px;min-width:40px;min-height:38px;border-radius:8px;transition:background-color .25s,color .25s}
+.u-lang button:hover{color:#e6c27a}
+.u-lang button[aria-pressed="true"]{background:#d4a85a;color:#140c08}
+/* motion */
+@keyframes u-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes u-kb{from{transform:scale(1.14)}to{transform:scale(1)}}
+@keyframes u-down{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:none}}
+@keyframes u-up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes u-reveal{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
+.u-track{animation:u-slide 70s linear infinite}
+.u-track:hover{animation-play-state:paused}
+.u-track img{transition:transform .5s ease, filter .5s ease}
+.u-track img:hover{transform:scale(1.04);filter:brightness(1.1)}
+.u-kb{animation:u-kb 16s cubic-bezier(.2,.6,.2,1) both}
+.u-logo{animation:u-down 1s .15s cubic-bezier(.2,.7,.2,1) both}
+.u-h1{animation:u-up .9s .45s cubic-bezier(.2,.7,.2,1) both}
+.u-sub{animation:u-up .9s .65s cubic-bezier(.2,.7,.2,1) both}
+.u-ctas{animation:u-up .9s .85s cubic-bezier(.2,.7,.2,1) both}
+.u-btn{transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease}
+.u-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.u-card img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.u-card:hover img{transform:scale(1.05)}
+.u-burger .u-bar{display:block;height:2px;background:#f1e6d2;border-radius:2px;transition:width .3s ease, transform .35s cubic-bezier(.2,.7,.2,1), opacity .25s ease, background-color .3s ease}
+.u-burger:hover .u-bar{background:#e6c27a;width:24px !important}
+.u-burger.is-open .u-bar{width:24px !important;background:#e6c27a}
+.u-burger.is-open .u-bar:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.u-burger.is-open .u-bar:nth-child(2){opacity:0;transform:scaleX(.2)}
+.u-burger.is-open .u-bar:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.u-chev{transition:transform .3s ease}
+.u-chev.is-open{transform:rotate(180deg)}
+.u-langmenu{opacity:0;visibility:hidden;transform:translateY(-8px) scale(.97);transform-origin:top left;transition:opacity .25s ease, transform .3s cubic-bezier(.2,.7,.2,1), visibility .3s}
+.u-langmenu.is-open{opacity:1;visibility:visible;transform:none}
+.u-langopt{background:transparent;color:#f1e6d2;padding:11px 14px;border-radius:8px;font-size:16px;font-weight:500;text-align:left;transition:background-color .2s, color .2s}
+.u-langopt:hover{background:#2a1610}
+.u-langopt[aria-pressed="true"]{color:#d4a85a;font-weight:700}
+.u-overlay{position:fixed;inset:0;z-index:50;visibility:hidden;opacity:0;transition:opacity .4s ease, visibility .4s ease}
+.u-overlay.is-open{visibility:visible;opacity:1}
+.u-overlay .u-item{opacity:0;transform:translateY(24px)}
+.u-overlay.is-open .u-item{animation:u-up .55s cubic-bezier(.2,.7,.2,1) both}
+.u-overlay.is-open .u-item:nth-child(1){animation-delay:.08s}
+.u-overlay.is-open .u-item:nth-child(2){animation-delay:.14s}
+.u-overlay.is-open .u-item:nth-child(3){animation-delay:.20s}
+.u-overlay.is-open .u-item:nth-child(4){animation-delay:.26s}
+.u-overlay.is-open .u-item:nth-child(5){animation-delay:.32s}
+.u-navlink{transition:color .25s ease, padding .3s ease}
+.u-navlink:hover{color:#e6c27a !important;padding-inline-start:12px}
+.u-sheet{transform:translateY(24px) scale(.98);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.u-overlay.is-open .u-sheet{transform:none}
+@supports (animation-timeline: view()){
+  .u-reveal{animation:u-reveal linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+}
+@media (max-width: 420px){.u-name{display:none}}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .u-track,.u-kb,.u-logo,.u-h1,.u-sub,.u-ctas,.u-reveal,.u-overlay.is-open .u-item{animation:none !important;opacity:1 !important;transform:none !important}
+  .u-overlay,.u-sheet{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="u-root lang-he" id="u-root" dir="rtl" lang="he" style="background: #140c08; color: #f1e6d2; font-family: 'Heebo', 'Rubik', system-ui, sans-serif; font-size: 18px; line-height: 1.7">
+
+  <!-- TOP CONTROLS: language (top left) · hamburger (top right) -->
+  <div dir="ltr" style="position: sticky; top: 0; z-index: 60; height: 0">
+    <div style="position: absolute; top: 14px; left: 14px">
+      <button type="button" class="u-plain u-chip" data-act="toggleLang" aria-expanded="false" aria-label="Language / שפה / Язык" style="display: flex; align-items: center; gap: 6px; height: 48px; padding: 0 12px; border-radius: 12px; background: rgba(20,12,8,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212,168,90,0.35); color: #f1e6d2; font-weight: 700; font-size: 15px">
+        <span id="u-langlabel">עב</span>
+        <svg class="u-chev" id="u-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a85a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </button>
+      <div class="u-langmenu" id="u-langmenu" role="group" aria-label="Language" style="position: absolute; top: 56px; left: 0; min-width: 160px; background: #1f120c; border: 1px solid #4a3020; border-radius: 12px; padding: 6px; box-shadow: 0 18px 40px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px">
+        <button type="button" class="u-plain u-langopt" data-act="setHe" aria-pressed="true" data-lang="he">עברית</button>
+        <button type="button" class="u-plain u-langopt" data-act="setEn" aria-pressed="false" data-lang="en">English</button>
+        <button type="button" class="u-plain u-langopt" data-act="setRu" aria-pressed="false" data-lang="ru">Русский</button>
+      </div>
+    </div>
+    <div style="position: absolute; top: 14px; right: 14px">
+      <button type="button" class="u-plain u-burger" id="u-burger" data-act="toggleNav" aria-expanded="false" aria-label="Navigation / ניווט / Навигация" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(20,12,8,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212,168,90,0.35); display: flex; align-items: center; justify-content: center">
+        <span aria-hidden="true" style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; width: 24px">
+          <span class="u-bar" style="width: 24px"></span>
+          <span class="u-bar" style="width: 17px"></span>
+          <span class="u-bar" style="width: 11px"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- NAV OVERLAY -->
+  <div id="nav" class="u-overlay" role="dialog" aria-label="Navigation" aria-hidden="true" style="background: rgba(16,9,6,0.97)">
+    <div style="max-width: 1200px; margin: 0 auto; height: 100%; box-sizing: border-box; padding: 20px 24px 32px; display: flex; flex-direction: column">
+      <div style="height: 64px"></div>
+      <nav aria-label="Main" style="margin-top: 16px; display: flex; flex-direction: column; flex: 1; justify-content: center">
+        <a href="#menu" data-act="openMenu" class="u-item u-navlink u-disp" style="color: #d4a85a; text-decoration: none; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(52px, 9vw, 88px); line-height: 1.05; border-bottom: 1px solid #2f1d12; padding: 6px 0"><span data-l="he">התפריט</span><span data-l="en">Menu</span><span data-l="ru">Меню</span></a>
+        <a href="#about" data-act="closeNav" class="u-item u-navlink u-disp" style="color: #f1e6d2; text-decoration: none; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(52px, 9vw, 88px); line-height: 1.05; border-bottom: 1px solid #2f1d12; padding: 6px 0"><span data-l="he">עלינו</span><span data-l="en">About</span><span data-l="ru">О нас</span></a>
+        <a href="#board" data-act="closeNav" class="u-item u-navlink u-disp" style="color: #f1e6d2; text-decoration: none; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(52px, 9vw, 88px); line-height: 1.05; border-bottom: 1px solid #2f1d12; padding: 6px 0"><span data-l="he">במה פתוחה</span><span data-l="en">Open stage</span><span data-l="ru">Открытая сцена</span></a>
+        <a href="#happy" data-act="closeNav" class="u-item u-navlink u-disp" style="color: #f1e6d2; text-decoration: none; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(52px, 9vw, 88px); line-height: 1.05; border-bottom: 1px solid #2f1d12; padding: 6px 0"><span data-l="he">האפי האוור</span><span data-l="en">Happy hour</span><span data-l="ru">Happy hour</span></a>
+        <a href="#visit" data-act="closeNav" class="u-item u-navlink u-disp" style="color: #f1e6d2; text-decoration: none; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(52px, 9vw, 88px); line-height: 1.05; padding: 6px 0"><span data-l="he">שעות ואיך מגיעים</span><span data-l="en">Hours &amp; directions</span><span data-l="ru">Часы и как добраться</span></a>
+      </nav>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px">
+        <a href="tel:+97298829919" class="u-btn" style="flex: 1; min-width: 150px; text-align: center; background: #d4a85a; color: #140c08; text-decoration: none; font-weight: 700; padding: 14px; border-radius: 10px"><span dir="ltr">09-882-9919</span></a>
+        <a href="https://instagram.com/" target="_blank" class="u-btn" style="flex: 1; min-width: 150px; text-align: center; border: 1px solid #d4a85a; color: #d4a85a; text-decoration: none; font-weight: 700; padding: 13px; border-radius: 10px">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU VIEWER OVERLAY (full page) -->
+  <div id="menu-view" class="u-overlay" role="dialog" aria-label="Menu" aria-hidden="true" style="background: rgba(10,6,4,0.96); display: flex; flex-direction: column">
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #3a2619; background: #140c08">
+      <p class="u-disp" style="margin: 0; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 36px; line-height: 1"><span data-l="he">התפריט</span><span data-l="en">Menu</span><span data-l="ru">Меню</span></p>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <a href="uranus-menu.pdf" download="uranus-menu.pdf" class="u-btn" style="border: 1px solid #d4a85a; color: #d4a85a; text-decoration: none; font-weight: 700; font-size: 15px; padding: 10px 14px; border-radius: 10px"><span data-l="he">הורדת PDF</span><span data-l="en">Download PDF</span><span data-l="ru">Скачать PDF</span></a>
+        <button type="button" class="u-plain" data-act="closeMenu" aria-label="Close / סגירה" style="background: transparent; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid #4a3020; border-radius: 10px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1e6d2" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div style="flex: 1; overflow: auto; -webkit-overflow-scrolling: touch">
+      <div class="u-sheet" style="padding: 16px; display: flex; flex-direction: column; gap: 16px; align-items: center">
+        <p style="margin: 0; color: #a8946f; font-size: 14px"><span data-l="he">אפשר להגדיל עם שתי אצבעות ולגלול לצדדים</span><span data-l="en">Pinch to zoom and scroll sideways</span><span data-l="ru">Увеличьте двумя пальцами и листайте в стороны</span></p>
+        <img src="menu-he.jpg" alt="תפריט אורנוס בעברית" style="width: max(100%, 1100px); max-width: 1600px; height: auto; border-radius: 6px">
+        <p style="margin: 16px 0 0; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 24px; line-height: 1">English menu</p>
+        <img src="menu-en.jpg" alt="Uranus menu in English" style="width: max(100%, 1100px); max-width: 1600px; height: auto; border-radius: 6px">
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO: full screen on phones -->
+  <section id="top" style="position: relative; height: min(100svh, 920px); min-height: 620px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: space-between">
+    <img class="u-kb" src="hero.jpg" alt="ערב מלא באורנוס מתחת לשלט הניאון" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%">
+    <div style="position: absolute; inset: 0; background: rgba(20,12,8,0.5)"></div>
+    <div style="position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(to top, rgba(20,12,8,0.95), rgba(20,12,8,0))"></div>
+    <img class="u-logo" src="logo.png" alt="Uranus Pub — since 1980" style="position: relative; margin-top: 28px; width: clamp(200px, 56vw, 340px); height: auto; filter: drop-shadow(0 14px 36px rgba(0,0,0,0.65))">
+    <div style="position: relative; text-align: center; padding: 0 20px 64px; max-width: 900px">
+      <h1 class="u-h1 u-disp" style="margin: 0; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(64px, 10vw, 136px); line-height: 0.9"><span data-l="he">הבר האנגלי של נתניה.<br><span style="color: #d4a85a">מאז 1980.</span></span><span data-l="en">Netanya's English pub.<br><span style="color: #d4a85a">Since 1980.</span></span><span data-l="ru">Английский паб Нетании.<br><span style="color: #d4a85a">С 1980 года.</span></span></h1>
+      <p class="u-sub" style="margin: 18px auto 0; max-width: 560px; font-size: 19px; color: #e6d8bf"><span data-l="he">כל ערב מ-18:00 ועד אחרון הלקוחות · האפי האוור <bdi dir="ltr">18:00–20:00</bdi></span><span data-l="en">Every night from 18:00 till the last guest · Happy hour <bdi dir="ltr">18:00–20:00</bdi></span><span data-l="ru">Каждый вечер с 18:00 до последнего гостя · Happy hour <bdi dir="ltr">18:00–20:00</bdi></span></p>
+      <div class="u-ctas" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px">
+        <a href="#menu" data-act="openMenu" class="u-btn" style="background: #d4a85a; color: #140c08; text-decoration: none; font-weight: 700; padding: 15px 30px; border-radius: 10px"><span data-l="he">לתפריט</span><span data-l="en">See the menu</span><span data-l="ru">Меню</span></a>
+        <a href="#board" class="u-btn" style="border: 1px solid #f1e6d2; color: #f1e6d2; text-decoration: none; font-weight: 500; padding: 14px 28px; border-radius: 10px"><span data-l="he">במה פתוחה</span><span data-l="en">Open stage</span><span data-l="ru">Открытая сцена</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="max-width: 1200px; margin: 0 auto; padding: 96px 20px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: center">
+    <div class="u-reveal">
+      <p style="margin: 0; color: #d4a85a; letter-spacing: 3px; font-size: 16px; font-weight: 700">✶ <span data-l="he">עלינו</span><span data-l="en">ABOUT US</span><span data-l="ru">О НАС</span> ✶</p>
+      <h2 class="u-disp" style="margin: 4px 0 20px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(56px, 7vw, 84px); line-height: 0.95"><span data-l="he">הבר האנגלי האמיתי והאותנטי של נתניה</span><span data-l="en">Netanya's real, authentic English pub</span><span data-l="ru">Настоящий английский паб Нетании</span></h2>
+      <p style="margin: 0 0 16px; color: #e6d8bf"><span data-l="he">קיים מ-1980 ומשלב בין לקוחות ותיקים של שנים ואווירה צעירה כאחד. בין אם זה דייט על הבר, בירה עם החברים, או סתם לנשנש את הכנפיים שלנו — האורנוס הוא בדיוק המקום בשבילכם.</span><span data-l="en">Open since 1980, Uranus brings together regulars who have been coming for years and a young, lively crowd. Whether it's a date at the bar, a beer with friends or just snacking on our wings — Uranus is exactly the place for you.</span><span data-l="ru">Мы открыты с 1980 года и объединяем постоянных гостей, которые приходят к нам годами, и молодую атмосферу. Свидание у барной стойки, пиво с друзьями или просто наши крылышки — Uranus именно то место, которое вам нужно.</span></p>
+      <p style="margin: 0 0 16px; color: #e6d8bf"><span data-l="he">יום ראשון עד שבת, החל מהשעה 18:00 ועד 01:30, ועד אחרון הלקוחות.</span><span data-l="en">Sunday to Saturday, from 18:00 to 01:30 — and until the last guest leaves.</span><span data-l="ru">С воскресенья по субботу, с 18:00 до 01:30 — и до последнего гостя.</span></p>
+      <p class="u-disp" style="margin: 0; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; color: #d4a85a"><span data-l="he">בואו להרים איתנו לחיים!</span><span data-l="en">Come raise a glass with us!</span><span data-l="ru">Приходите поднять бокал вместе с нами!</span></p>
+    </div>
+    <div class="u-reveal u-card" style="overflow: hidden; border-radius: 6px">
+      <img src="smile-bar.jpg" alt="חיוך על הבר של אורנוס" style="width: 100%; height: 560px; object-fit: cover; object-position: 50% 30%">
+    </div>
+  </section>
+
+  <!-- AUTO-SLIDING GALLERY -->
+  <section aria-label="Gallery" dir="ltr" style="overflow: hidden; padding: 24px 0 88px">
+    <div class="u-track" style="display: flex; gap: 14px; width: max-content">
+      <img src="crowd-neon.jpg" alt="Friends around a table under the neon sign" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="burger.jpg" alt="Burger with egg and fries" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="shot.jpg" alt="A shot by the tables" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="cocktail.jpg" alt="Cocktail with thyme" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="pints-table.jpg" alt="Pints on a wooden table" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="laughs.jpg" alt="Laughing under the Guinness sign" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="platter.jpg" alt="Sharing platter of fries and snacks" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="waffle.jpg" alt="Belgian waffle with ice cream" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="regulars.jpg" alt="Regulars at Uranus" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="shelf.jpg" alt="The whisky shelf" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="crowd-neon.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="burger.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="shot.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="cocktail.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="pints-table.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="laughs.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="platter.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="waffle.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="regulars.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+      <img src="shelf.jpg" alt="" aria-hidden="true" style="width: 260px; height: 325px; object-fit: cover; border-radius: 6px">
+    </div>
+  </section>
+
+  <!-- OPEN STAGE + HAPPY HOUR -->
+  <section id="board" style="max-width: 1200px; margin: 0 auto; padding: 0 20px 96px">
+    <div class="u-reveal" style="text-align: center; margin-bottom: 40px">
+      <p style="margin: 0; color: #d4a85a; letter-spacing: 3px; font-size: 16px; font-weight: 700">✶ <span data-l="he">מה קורה באורנוס</span><span data-l="en">WHAT'S ON</span><span data-l="ru">ЧТО У НАС</span> ✶</p>
+      <h2 class="u-disp" style="margin: 4px 0 0; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(64px, 8vw, 96px); line-height: 0.95"><span data-l="he">במה פתוחה והאפי האוור</span><span data-l="en">Open stage &amp; Happy hour</span><span data-l="ru">Открытая сцена и Happy hour</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+      <article class="u-reveal u-card" style="background: #1f120c; border: 1px solid #3a2619; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column">
+        <div style="overflow: hidden"><img src="open-stage.jpg" alt="The crowd at open stage night" style="width: 100%; height: 340px; object-fit: cover; object-position: 50% 35%"></div>
+        <div style="padding: 28px; display: flex; flex-direction: column; flex: 1">
+          <h3 class="u-disp" style="margin: 0; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; color: #d4a85a"><span data-l="he">במה פתוחה</span><span data-l="en">Open stage</span><span data-l="ru">Открытая сцена</span></h3>
+          <p style="margin: 6px 0 12px; font-weight: 700"><span data-l="he">יום ראשון, אחת לשבועיים · 21:00</span><span data-l="en">Every other Sunday · 21:00</span><span data-l="ru">Воскресенье, раз в две недели · 21:00</span></p>
+          <p style="margin: 0 0 22px; color: #cbb999"><span data-l="he">יום ראשון שלכם פנוי? מקווים שכן, כי זה בדיוק הזמן להגיע ב-21:00 ביום ראשון אחת לשבועיים, לבמה פתוחה באורנוס — הופעות חיות, בירה קרה ואווירה מחממת. וזאת גם ההזדמנות שלכם לשיר ולהופיע בבמה הפתוחה!</span><span data-l="en">Free on Sunday? We hope so — because every other Sunday at 21:00 it's open stage night at Uranus: live performances, cold beer and a warm vibe. And it's your chance to sing and perform on the open stage!</span><span data-l="ru">Свободны в воскресенье? Надеемся, что да — ведь раз в две недели в 21:00 в Uranus открытая сцена: живые выступления, холодное пиво и тёплая атмосфера. Это и ваш шанс спеть и выступить на сцене!</span></p>
+          <a href="https://instagram.com/" target="_blank" class="u-btn" style="margin-top: auto; align-self: flex-start; background: #d4a85a; color: #140c08; text-decoration: none; font-weight: 700; padding: 13px 22px; border-radius: 10px"><span data-l="he">תשארו מעודכנים — פרטים באינסטגרם</span><span data-l="en">Stay tuned — details on Instagram</span><span data-l="ru">Подробности в Instagram</span></a>
+        </div>
+      </article>
+      <article id="happy" class="u-reveal u-card" style="background: #1f120c; border: 1px solid #3a2619; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column">
+        <div style="overflow: hidden"><img src="shots.jpg" alt="Cheers with shots at Uranus" style="width: 100%; height: 340px; object-fit: cover; object-position: 50% 45%"></div>
+        <div style="padding: 28px; display: flex; flex-direction: column; flex: 1">
+          <h3 style="margin: 0; font-family: 'Karantina', 'Oswald', sans-serif; font-weight: 700; font-size: 64px; line-height: 1">Happy Hour <span style="color: #d4a85a">:)</span></h3>
+          <p style="margin: 6px 0 12px; font-weight: 700"><span data-l="he">כל ימות השבוע · <bdi dir="ltr">18:00–20:00</bdi></span><span data-l="en">Every day · <bdi dir="ltr">18:00–20:00</bdi></span><span data-l="ru">Каждый день · <bdi dir="ltr">18:00–20:00</bdi></span></p>
+          <p style="margin: 0 0 8px; color: #cbb999"><span data-l="he">בכל ימות השבוע משעה 18:00 ועד שעה 20:00 מחכה לכם האפי האוור אצלנו —</span><span data-l="en">Every day of the week from 18:00 to 20:00, happy hour is waiting for you —</span><span data-l="ru">Каждый день с 18:00 до 20:00 вас ждёт happy hour —</span></p>
+          <p class="u-disp" style="margin: 0; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; color: #d4a85a"><span data-l="he">כ-30% הנחה על כל תפריט האוכל והאלכוהול</span><span data-l="en">About 30% off the entire food &amp; drinks menu</span><span data-l="ru">Скидка около 30% на всё меню еды и алкоголя</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" style="background: #2a1610; border-top: 1px solid #3a2619; border-bottom: 1px solid #3a2619">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: center">
+      <div class="u-reveal">
+        <p style="margin: 0 0 6px; color: #d4a85a; letter-spacing: 3px; font-size: 16px; font-weight: 700">✶ <span data-l="he">התפריט</span><span data-l="en">THE MENU</span><span data-l="ru">МЕНЮ</span> ✶</p>
+        <h2 class="u-disp" style="margin: 0 0 16px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: clamp(60px, 7vw, 84px); line-height: 0.95"><span data-l="he">עיקריות, קוקטיילים, בירות מהחבית ומדף הוויסקי</span><span data-l="en">Mains, cocktails, draught beer &amp; the whisky shelf</span><span data-l="ru">Горячее, коктейли, разливное пиво и виски</span></h2>
+        <p style="margin: 0 0 28px; color: #cbb999; max-width: 460px"><span data-l="he">לחצו על התפריט כדי לפתוח אותו במסך מלא — בעברית ובאנגלית.</span><span data-l="en">Tap the menu to open it full screen — in Hebrew and English.</span><span data-l="ru">Нажмите на меню, чтобы открыть его на весь экран — на иврите и английском.</span></p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap">
+          <a href="#menu" data-act="openMenu" class="u-btn" style="background: #d4a85a; color: #140c08; text-decoration: none; font-weight: 700; padding: 15px 28px; border-radius: 10px"><span data-l="he">פתיחת התפריט</span><span data-l="en">Open the menu</span><span data-l="ru">Открыть меню</span></a>
+          <a href="uranus-menu.pdf" download="uranus-menu.pdf" class="u-btn" style="border: 1px solid #d4a85a; color: #d4a85a; text-decoration: none; font-weight: 500; padding: 14px 28px; border-radius: 10px"><span data-l="he">הורדת PDF</span><span data-l="en">Download PDF</span><span data-l="ru">Скачать PDF</span></a>
+        </div>
+      </div>
+      <a href="#menu" data-act="openMenu" class="u-reveal u-card" aria-label="Open the menu full screen" style="display: block; text-decoration: none; overflow: hidden; border-radius: 8px; box-shadow: 0 30px 60px rgba(0,0,0,0.5)">
+        <img src="menu-preview.png" alt="Uranus menu preview" style="width: 100%; height: auto">
+      </a>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" style="max-width: 1200px; margin: 0 auto; padding: 88px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px">
+    <div class="u-reveal">
+      <h2 class="u-disp" style="margin: 0 0 8px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; color: #d4a85a"><span data-l="he">כתובת</span><span data-l="en">Address</span><span data-l="ru">Адрес</span></h2>
+      <p style="margin: 0; color: #e6d8bf"><span data-l="he">כיכר העצמאות 13 (פסאז׳ פאפא)<br>נתניה</span><span data-l="en">13 Kikar HaAtzmaut (Papa Passage)<br>Netanya</span><span data-l="ru">Площадь Ацмаут, 13 (пассаж «Папа»)<br>Нетания</span></p>
+      <a href="https://waze.com/ul?q=%D7%9B%D7%99%D7%9B%D7%A8%20%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA%2013%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94" target="_blank" style="display: inline-block; margin-top: 10px; font-weight: 700"><span data-l="he">ניווט ב-Waze</span><span data-l="en">Navigate with Waze</span><span data-l="ru">Маршрут в Waze</span></a>
+    </div>
+    <div class="u-reveal">
+      <h2 class="u-disp" style="margin: 0 0 8px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; color: #d4a85a"><span data-l="he">שעות פתיחה</span><span data-l="en">Opening hours</span><span data-l="ru">Часы работы</span></h2>
+      <p style="margin: 0; color: #e6d8bf"><span data-l="he">ראשון עד שבת · <bdi dir="ltr">18:00–01:30</bdi><br>ועד אחרון הלקוחות</span><span data-l="en">Sunday–Saturday · <bdi dir="ltr">18:00–01:30</bdi><br>and until the last guest</span><span data-l="ru">Вс–Сб · <bdi dir="ltr">18:00–01:30</bdi><br>и до последнего гостя</span></p>
+      <p style="margin: 8px 0 0; color: #cbb999"><span data-l="he">האפי האוור כל יום <bdi dir="ltr">18:00–20:00</bdi></span><span data-l="en">Happy hour daily <bdi dir="ltr">18:00–20:00</bdi></span><span data-l="ru">Happy hour ежедневно <bdi dir="ltr">18:00–20:00</bdi></span></p>
+    </div>
+    <div class="u-reveal">
+      <h2 class="u-disp" style="margin: 0 0 8px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; color: #d4a85a"><span data-l="he">דברו איתנו</span><span data-l="en">Get in touch</span><span data-l="ru">Связаться с нами</span></h2>
+      <p style="margin: 0; color: #e6d8bf"><a href="tel:+97298829919" dir="ltr">09-882-9919</a><br><a href="https://instagram.com/" target="_blank">Instagram</a></p>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid #3a2619">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 24px 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 15px; color: #a8946f">
+      <span><span data-l="he">© פאב אורנוס · Uranus Pub · מאז 1980</span><span data-l="en">© Uranus Pub · Since 1980</span><span data-l="ru">© Uranus Pub · С 1980 года</span></span>
+      <span><span data-l="he">מכירת אלכוהול מגיל 18 בלבד</span><span data-l="en">Alcohol served to 18+ only</span><span data-l="ru">Алкоголь только с 18 лет</span></span>
+    </div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var st={lang:'he',nav:false,menu:false,langOpen:false};
+  var labels={he:'עב',en:'EN',ru:'RU'};
+  var $=function(id){return document.getElementById(id)};
+  function render(){
+    var root=$('u-root');
+    root.className='u-root lang-'+st.lang;
+    root.dir=st.lang==='he'?'rtl':'ltr'; root.lang=st.lang;
+    document.documentElement.lang=st.lang; document.documentElement.dir=root.dir;
+    $('u-langlabel').textContent=labels[st.lang];
+    $('u-langmenu').classList.toggle('is-open',st.langOpen);
+    $('u-chev').classList.toggle('is-open',st.langOpen);
+    document.querySelectorAll('[data-act="toggleLang"]').forEach(function(b){b.setAttribute('aria-expanded',st.langOpen)});
+    document.querySelectorAll('[data-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===st.lang)});
+    $('u-burger').classList.toggle('is-open',st.nav);
+    $('u-burger').setAttribute('aria-expanded',st.nav);
+    $('nav').classList.toggle('is-open',st.nav); $('nav').setAttribute('aria-hidden',!st.nav);
+    $('menu-view').classList.toggle('is-open',st.menu); $('menu-view').setAttribute('aria-hidden',!st.menu);
+    document.body.style.overflow=(st.nav||st.menu)?'hidden':'';
+  }
+  var acts={
+    toggleLang:function(){st.langOpen=!st.langOpen},
+    setHe:function(){st.lang='he';st.langOpen=false},
+    setEn:function(){st.lang='en';st.langOpen=false},
+    setRu:function(){st.lang='ru';st.langOpen=false},
+    toggleNav:function(){st.nav=!st.nav;st.menu=false;st.langOpen=false},
+    openNav:function(){st.nav=true;st.menu=false},
+    closeNav:function(){st.nav=false},
+    openMenu:function(){st.menu=true;st.nav=false},
+    closeMenu:function(){st.menu=false}
+  };
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('[data-act]');
+    if(el){
+      var a=el.getAttribute('data-act');
+      if(a==='openMenu') e.preventDefault();
+      acts[a]&&acts[a](); 
+      if(a.indexOf('set')===0){try{localStorage.setItem('uranus-lang',st.lang)}catch(_){}}
+      render(); return;
+    }
+    if(st.langOpen && !e.target.closest('#u-langmenu')){st.langOpen=false;render();}
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&(st.nav||st.menu||st.langOpen)){st.nav=st.menu=st.langOpen=false;render();}
+  });
+  try{var l=localStorage.getItem('uranus-lang');if(l&&labels[l])st.lang=l;}catch(_){}
+  render();
+})();
+
+</script>
+</body>
+</html>
