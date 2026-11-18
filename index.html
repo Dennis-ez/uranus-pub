@@ -33,12 +33,12 @@ img{display:block}
 @keyframes u-down{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:none}}
 @keyframes u-up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes u-reveal{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
-.u-gallery{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;cursor:grab}
+.u-gallery{overflow-x:auto;overflow-y:hidden;overscroll-behavior-y:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;cursor:grab}
 .u-gallery::-webkit-scrollbar{display:none}
 .u-top{transition:opacity .25s ease, visibility .25s}
 .u-top.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
 .u-track img{transition:transform .5s ease, filter .5s ease}
-.u-track img:hover{transform:scale(1.04);filter:brightness(1.1)}
+.u-track img:hover{filter:brightness(1.12)}
 .u-kb{animation:u-kb 16s cubic-bezier(.2,.6,.2,1) both}
 .u-logo{animation:u-down 1s .15s cubic-bezier(.2,.7,.2,1) both}
 .u-h1{animation:u-up .9s .45s cubic-bezier(.2,.7,.2,1) both}
@@ -127,6 +127,7 @@ img{display:block}
       </nav>
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px">
         <a href="tel:+97298829919" class="u-btn" style="flex: 1; min-width: 150px; text-align: center; background: #d4a85a; color: #140c08; text-decoration: none; font-weight: 700; padding: 14px; border-radius: 10px"><span dir="ltr">09-882-9919</span></a>
+        <a href="https://waze.com/ul?q=%D7%9B%D7%99%D7%9B%D7%A8%20%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA%2013%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94&amp;navigate=yes" target="_blank" class="u-btn" style="flex: 1; min-width: 150px; text-align: center; border: 1px solid #d4a85a; color: #d4a85a; text-decoration: none; font-weight: 700; padding: 13px; border-radius: 10px"><span data-l="he">ניווט ב-Waze</span><span data-l="en">Waze</span><span data-l="ru">Waze</span></a>
         <a href="https://instagram.com/" target="_blank" class="u-btn" style="flex: 1; min-width: 150px; text-align: center; border: 1px solid #d4a85a; color: #d4a85a; text-decoration: none; font-weight: 700; padding: 13px; border-radius: 10px">Instagram</a>
       </div>
     </div>
@@ -262,7 +263,7 @@ img{display:block}
     <div class="u-reveal">
       <h2 class="u-disp" style="margin: 0 0 8px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; color: #d4a85a"><span data-l="he">כתובת</span><span data-l="en">Address</span><span data-l="ru">Адрес</span></h2>
       <p style="margin: 0; color: #e6d8bf"><span data-l="he">כיכר העצמאות 13 (פסאז׳ פאפא)<br>נתניה</span><span data-l="en">13 Kikar HaAtzmaut (Papa Passage)<br>Netanya</span><span data-l="ru">Площадь Ацмаут, 13 (пассаж «Папа»)<br>Нетания</span></p>
-      <a href="https://waze.com/ul?q=%D7%9B%D7%99%D7%9B%D7%A8%20%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA%2013%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94" target="_blank" style="display: inline-block; margin-top: 10px; font-weight: 700"><span data-l="he">ניווט ב-Waze</span><span data-l="en">Navigate with Waze</span><span data-l="ru">Маршрут в Waze</span></a>
+      <a href="https://waze.com/ul?q=%D7%9B%D7%99%D7%9B%D7%A8%20%D7%94%D7%A2%D7%A6%D7%9E%D7%90%D7%95%D7%AA%2013%20%D7%A0%D7%AA%D7%A0%D7%99%D7%94&amp;navigate=yes" target="_blank" class="u-btn" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; background: #d4a85a; color: #140c08; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#140c08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span data-l="he">ניווט ב-Waze</span><span data-l="en">Navigate with Waze</span><span data-l="ru">Маршрут в Waze</span></a>
     </div>
     <div class="u-reveal">
       <h2 class="u-disp" style="margin: 0 0 8px; font-family: 'Karantina', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; color: #d4a85a"><span data-l="he">שעות פתיחה</span><span data-l="en">Opening hours</span><span data-l="ru">Часы работы</span></h2>
