@@ -61,6 +61,8 @@ img{display:block}
 .u-langopt[aria-pressed="true"]{color:#d4a85a;font-weight:700}
 .u-overlay{position:fixed;inset:0;z-index:50;visibility:hidden;opacity:0;transition:opacity .4s ease, visibility .4s ease}
 .u-overlay.is-open{visibility:visible;opacity:1}
+#menu-view{z-index:70}
+#menu-view > div:first-child{position:relative;z-index:1;padding-top:max(12px, env(safe-area-inset-top, 0px)) !important}
 .u-overlay .u-item{opacity:0;transform:translateY(24px)}
 .u-overlay.is-open .u-item{animation:u-up .55s cubic-bezier(.2,.7,.2,1) both}
 .u-overlay.is-open .u-item:nth-child(1){animation-delay:.08s}
@@ -140,7 +142,7 @@ img{display:block}
       </div>
     </div>
     <div style="flex: 1; overflow: auto; -webkit-overflow-scrolling: touch">
-      <div class="u-sheet" style="padding: 16px; display: flex; flex-direction: column; gap: 16px; align-items: center">
+      <div class="u-sheet" style="padding: 16px; display: flex; flex-direction: column; gap: 16px; align-items: safe center; width: max-content; min-width: 100%; box-sizing: border-box">
         <p style="margin: 0; color: #a8946f; font-size: 14px"><span data-l="he">אפשר להגדיל עם שתי אצבעות ולגלול לצדדים</span><span data-l="en">Pinch to zoom and scroll sideways</span><span data-l="ru">Увеличьте двумя пальцами и листайте в стороны</span></p>
         <img src="menu-he.jpg" alt="תפריט אורנוס בעברית" style="width: max(100%, 1100px); max-width: 1600px; height: auto; border-radius: 6px">
         <p style="margin: 16px 0 0; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 24px; line-height: 1">English menu</p>
